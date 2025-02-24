@@ -15,7 +15,7 @@ app.get('/sales', async (req, res) => {
         }
       }
     );
-    // Double-check: only keep sales with "Common" rarity
+    // Filter for Common rarity
     const filteredData = response.data.data.filter(sale => 
       (sale.assets[0].data.rarity || sale.assets[0].template.immutable_data.rarity) === "Common"
     );
