@@ -7,7 +7,7 @@ app.get('/sales', async (req, res) => {
   try {
     const page = req.query.page || 1;
     const response = await axios.get(
-      `https://wax.api.atomicassets.io/atomicmarket/v2/sales?state=1&collection_name=alien.worlds&data.shine=Stone&limit=100&order=asc&sort=price&page=${page}`,
+      `https://wax.api.atomicassets.io/atomicmarket/v2/sales?state=1&collection_name=alien.worlds&data.shine=Stone&data.rarity=Common&limit=100&order=asc&sort=price&page=${page}`,
       {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
