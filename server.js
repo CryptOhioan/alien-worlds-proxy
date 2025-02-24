@@ -15,7 +15,11 @@ app.get('/sales', async (req, res) => {
         }
       }
     );
-    res.json(response.data);
+    // Double-check: only keep sales with "Common" rarity
+    const filteredData = response.data.data.filter(sale => 
+      (sale.assets[0].data.rarity || sale.assets[0].template.immutable_data.rarity) === "Common"
+    );
+    res.json({ ...response.data, data: filteredData });
   } catch (error) {
     res.status(error.response ? error.response.status : 500).json({
       error: error.message,
