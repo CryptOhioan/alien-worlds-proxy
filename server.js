@@ -15,7 +15,6 @@ app.get('/sales', async (req, res) => {
         }
       }
     );
-    // Filter for Common rarity
     const filteredData = response.data.data.filter(sale => 
       (sale.assets[0].data.rarity || sale.assets[0].template.immutable_data.rarity) === "Common"
     );
